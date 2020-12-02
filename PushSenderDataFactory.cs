@@ -2,7 +2,7 @@ using System;
 using System.Reflection;
 using log4net;
 
-namespace Intertech.Notification.Utilities {
+namespace Notification.Utilities {
 
 
     // Interface
