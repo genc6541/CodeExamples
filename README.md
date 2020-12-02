@@ -1,32 +1,32 @@
-ASP.NET Core örnekleri ;
+ASP.NET Core examples ;
 
-ApplicationHelperService.cs  -> Db'den applciaiton bilgilerini çeker bir servis.
+ApplicationHelperService.cs  -> Gets application infos from db.
 
-CredentialService.cs -> Credential contoller'ın çağırdığı bazı servsilerden user bilgileri ve yetkilerini toplayan bir servis.
+CredentialService.cs -> The service which gets user'credentials and user infos.
 
-MenuService -> Uygulama menü listesini db'den çeken bir servis.
-
-
-ASP.NET framework da yazılan Örnekler;
-
-GsmStatusController.cs -> Gönderilen sms'lerin status'larını db'deki kayıtları çekerek daha sonra gsm opertörü servisinden  thread'lar ile sorgulayan servis.
-
-NotificationBulkResender.cs -> Gönderilmeyen sms'leri daha sonra ekrandan toplu göndermeye yarayan bir servis.
-
-NotificationDateTimeValidations.cs  -> Email ve sms 'lerin ekrandan tanımlanan saatler arasında gönderilp gönderilmeyecağine karar veren rule pattern ile yazılmış bir class.
-
-PushSenderDataFactory.cs -> Telefonun işletim sistemine göre push gönderimi yapan bir servis.
+MenuService -> Gets menulist of application from db.
 
 
-React-Typescript Örnek kodlar ; 
+ASP.NET framework examples;
 
-reactTextBoxComponent.ts -> External bir js kütüphanesinin input elementinin ihtiyaca göre react ile yeniden gelişmiş bir component haline getirilmesi.
+GsmStatusController.cs -> The service that queries the status of sent sms with threads from the gsm operator service by pulling the records in the db.
+                          
+NotificationBulkResender.cs -> A service that is used to send unsent sms from the screen in bulk.
 
-reactDrawerComponent.ts -> External bir js kütüphanesinin drawer elementinin react class component haline getirilmesi.
+NotificationDateTimeValidations.cs  -> A class written in rule pattern that decides whether emails and sms will be sent between the times defined on the screen.
 
-reactTypeScriptApplicationHelper.ts -> Applciation bilgilerini çeken servisn önyüz'den çağırımı.
+PushSenderDataFactory.cs -> A service that sends push according to the operating system of the phone.
 
-reactTypeScriptCredentialService-> User credential bilgilerini çeken servisin önyüzden çağırımı.
+
+React-Typescript examples ; 
+
+reactTextBoxComponent.ts -> The input element of an external js library is re-developed with react according to the need.
+
+reactDrawerComponent.ts -> Making the drawer element of an external js library into react class component.
+
+reactTypeScriptApplicationHelper.ts -> Call of the service that pulls the applciation information from the frontend.
+
+reactTypeScriptCredentialService-> The call from the frontend of the service that retrieves the user credential information.
 
 
 
