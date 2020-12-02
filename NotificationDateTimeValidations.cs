@@ -3,20 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Text;
-using Intertech.Esb.Application.Notification;
-using Intertech.Esb.Configuration;
-using Intertech.Esb.Configuration.SystemConfiguration;
-using Intertech.Esb.Entities;
-using Intertech.Esb.Notification;
-using Intertech.Notification.Entity;
-using Intertech.Notification.Entity.Common;
-using Intertech.Notification.Entity.Helper;
-using Intertech.Notification.Operation.Entity;
-using Intertech.Notification.Operation.Operation;
-using Intertech.Notification.Utilities;
 using log4net;
 
-namespace Intertech.Notification.Operation {
+namespace Notification.Operation {
 
     public class RequestDateControlRule : INotificationValidateRule {
 
@@ -173,7 +162,7 @@ namespace Intertech.Notification.Operation {
         }
 
     }
-    public class ControlScheduleDays : INotificationValidateRule {   //Takvim günlerini kontrol et o gün yoksa ilk geçerli günde gönder
+    public class ControlScheduleDays : INotificationValidateRule {   //Takvim gÃ¼nlerini kontrol et o gÃ¼n yoksa ilk geÃ§erli gÃ¼nde gÃ¶nder
 
         private static ILog log = log4net.LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
         public NotificationDateValidationInfo DecideNotificationTimeValidation(NotificationDefinition notificationDefinition, NotificationOptions notificationOptions, DateTime now, DateTime requestDate) {
@@ -209,7 +198,7 @@ namespace Intertech.Notification.Operation {
                                     }
                                 }
                                 else {
-                                    break;// O gün takvimde varsa bu class'dan çýk yoluna devam et, burayla iþin yok
+                                    break;// O gÃ¼n takvimde varsa bu class'dan Ã§Ã½k yoluna devam et, burayla iÃ¾in yok
                                 }
 
                             }
@@ -237,7 +226,7 @@ namespace Intertech.Notification.Operation {
                 else {
                     today = 0;
                 }
-                counter++;//Saysýn ki arada kaç gün var bilelim
+                counter++;//SaysÃ½n ki arada kaÃ§ gÃ¼n var bilelim
                 if (days.Contains(today)) {
                     lastNow = lastNow.AddDays(counter);
                     lastNowTime = lastNow.TimeOfDay;
@@ -262,7 +251,7 @@ namespace Intertech.Notification.Operation {
 
     }
     public class HandleRequestOutOfScheduleTime : INotificationValidateRule {
-        //Takvim saatleri dýþýnda öncesinde ve sonrasýnda gelen istekleri yönet
+        //Takvim saatleri dÃ½Ã¾Ã½nda Ã¶ncesinde ve sonrasÃ½nda gelen istekleri yÃ¶net
         public NotificationDateValidationInfo DecideNotificationTimeValidation(NotificationDefinition notificationDefinition, NotificationOptions notificationOptions, DateTime now, DateTime requestDate) {
             bool isValid = false;
             DateTime startTime = new DateTime();
@@ -276,8 +265,8 @@ namespace Intertech.Notification.Operation {
                     foreach (var scheduleItem in notificationDefinition.Schedules) {
                         if (!lastNowTime.IsBetween(scheduleItem.StartTime, scheduleItem.EndTime)) {
 
-                            //16:00-21:00 takvimi için ör istek saati : 15:00
-                            //08:00-17:00 takvimi için ör istek saati : 07:00
+                            //16:00-21:00 takvimi iÃ§in Ã¶r istek saati : 15:00
+                            //08:00-17:00 takvimi iÃ§in Ã¶r istek saati : 07:00
                             if (lastNowTime < scheduleItem.StartTime) {
                                 var newDate = new DateTime(now.Year, now.Month, now.Day, 00, 00, 00);
                                 startTime = newDate + scheduleItem.StartTime;
@@ -289,8 +278,8 @@ namespace Intertech.Notification.Operation {
 
                             if (lastNowTime > scheduleItem.EndTime) {
 
-                                //16:00-21:00 takvimi için ör istek saati : 22:00
-                                //08:00-17:00 takvimi için ör istek saati : 18:00
+                                //16:00-21:00 takvimi iÃ§in Ã¶r istek saati : 22:00
+                                //08:00-17:00 takvimi iÃ§in Ã¶r istek saati : 18:00
                                 if (lastNowTime.IsBetween(scheduleItem.EndTime, midNight)) {
                                     var newDate = new DateTime(now.Year, now.Month, now.Day, 00, 00, 00);
                                     newDate = newDate.AddDays(1);
@@ -302,8 +291,8 @@ namespace Intertech.Notification.Operation {
                                 }
 
 
-                                //16:00-21:00 takvimi için ör istek saati : 00:00 'dan sonra 16:00'a kadar. Ör: 00:40 veya 02:00
-                                //08:00-17:00 takvimi için ör istek saati : 00:00 'dan sonra 08:00'a kadar. Ör: 00:40 veya 02:00
+                                //16:00-21:00 takvimi iÃ§in Ã¶r istek saati : 00:00 'dan sonra 16:00'a kadar. Ã–r: 00:40 veya 02:00
+                                //08:00-17:00 takvimi iÃ§in Ã¶r istek saati : 00:00 'dan sonra 08:00'a kadar. Ã–r: 00:40 veya 02:00
                                 if (lastNowTime.IsLessThanOrEquals(midNight)) {
                                     var newDate = new DateTime(DateTime.Today.Year, DateTime.Today.Month, DateTime.Today.Day, 00, 00, 00);
                                     startTime = newDate + scheduleItem.StartTime;
