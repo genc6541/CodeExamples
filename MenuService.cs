@@ -2,16 +2,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using Intertech.Surface.Common;
-using Intertech.Surface.DataLayer;
-using Intertech.Surface.Operation.Entities;
-using Intertech.Surface.Operation.Services.ApplicationServices;
-using Intertech.Surface.Operation.Services.MenuServices;
-using Intertech.Surface.Operation.Tracing;
 using log4net;
 using Newtonsoft.Json;
 
-namespace Intertech.Surface.Operation.Operation {
+namespace Surface.Operation.Operation {
     public class MenuService : IMenuService {
 
         private readonly IApplicationHelperService applicationHelperService;
