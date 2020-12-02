@@ -2,15 +2,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using Intertech.Surface.DataLayer;
-using Intertech.Surface.Operation.Entities;
-using Intertech.Surface.Operation.Services.ApplicationServices;
-using Intertech.Surface.Operation;
 using log4net;
 using Newtonsoft.Json;
 using Intertech.Surface.Operation.Tracing;
 
-namespace Intertech.Surface.Operation.Operation {
+namespace Application.Operation.Operation {
 
     public class ApplicationHelperService : IApplicationHelperService {
 
