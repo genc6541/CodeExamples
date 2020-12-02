@@ -2,23 +2,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using Intertech.Esb.Application.Sso;
-using Intertech.Esb.Configuration;
-using Intertech.Esb.Configuration.Multilanguage;
-using Intertech.Esb.Configuration.SystemConfiguration;
-using Intertech.Esb.Node.Cache;
-using Intertech.Esb.Transactions;
-using Intertech.Shell.GatewayCore.Dependency.HttpHelper;
-using Intertech.Shell.GatewayCore.Tracing;
-using Intertech.Surface.Gateway.Aggregator.Cache;
-using Intertech.Surface.Gateway.Aggregator.IService;
-using Intertech.Surface.GateWay.Aggregator.Helper;
-using Intertech.Surface.GateWay.Model.Request;
-using Intertech.Surface.GateWay.Model.Response;
 using log4net;
 using Newtonsoft.Json;
 
-namespace Intertech.Surface.Gateway.Aggregator.Services {
+namespace Credential.Gateway.Aggregator.Services {
     /// <summary>
     /// ImsCredentialService
     /// </summary>
