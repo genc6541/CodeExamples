@@ -1,11 +1,5 @@
 using System;
 using System.Reflection;
-using Intertech.Esb.Application.Notification;
-using Intertech.Esb.NewtonJson.Json;
-using Intertech.Notification.Entity;
-using Intertech.Notification.Entity.Common;
-using Intertech.Notification.Entity.Entities.Mobile.Push;
-using Intertech.Notification.Entity.Helper;
 using log4net;
 
 namespace Intertech.Notification.Utilities {
