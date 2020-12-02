@@ -1,12 +1,3 @@
-using Intertech.Esb.Application.Notification;
-using Intertech.Esb.Configuration;
-using Intertech.Esb.Entities;
-using Intertech.Esb.Exceptions;
-using Intertech.Notification.Entity.Common;
-using Intertech.Notification.Entity.Helper;
-using Intertech.Notification.Entity.Mobile;
-using Intertech.Notification.Utilities;
-using Intertech.Notification.Utilities.Mobile.MobileSender;
 using log4net;
 using System;
 using System.Collections.Generic;
@@ -15,7 +6,7 @@ using System.Reflection;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Intertech.Notification.Operation.Operation.Mobile
+namespace Notification.Operation.Operation.Mobile
 {
     public static class GsmStatusController
     {
@@ -100,7 +91,7 @@ namespace Intertech.Notification.Operation.Operation.Mobile
                             sleepTime = ConfigurationHelper.GetConfiguration<int>(sleepTimeKey, sleepTime);
                         }
                         catch (Exception ex) {
-                            log.ErrorFormat("{0} configuration deðeri bulunamadý.{1}", sleepTimeKey, ex);
+                            log.ErrorFormat("{0} configuration deÃ°eri bulunamadÃ½.{1}", sleepTimeKey, ex);
                         }
                         Thread.Sleep(sleepTime);
                     }
